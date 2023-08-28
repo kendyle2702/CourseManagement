@@ -39,8 +39,8 @@ function deleteCourse(idOfCourse) {
       return responsse.json();
     })
     .then(() => {
-      let ulE = document.querySelector(`.course__block-${idOfCourse}`)
-      ulE.remove()
+      let ulE = document.querySelector(`.course__block-${idOfCourse}`);
+      ulE.remove();
     });
 }
 function renderCourses(courses) {
@@ -72,6 +72,8 @@ function handelCreateForm() {
       description: descriptionForm,
     };
     postCourse(formData, () => {
+      document.querySelector('input[name="title"]').value = "";
+      document.querySelector('input[name="description"]').value = "";
       getCourses(renderCourses);
     });
   });
